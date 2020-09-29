@@ -1,5 +1,9 @@
 # rdbms-data-modeling
 
+## Database Schema
+
+![DatabaseSchema](Images/schema_database.png)
+
 ## Usage
 
 Starting local PostgreSQL instance:
