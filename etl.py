@@ -2,6 +2,8 @@ import os
 import glob
 import psycopg2
 import pandas as pd
+from config import config
+params = config()
 from sql_queries import *
 
 
@@ -60,7 +62,7 @@ def process_data(cur, conn, filepath, func):
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
-        for f in files :
+        for f in files:
             all_files.append(os.path.abspath(f))
 
     # get total number of files found
@@ -75,7 +77,8 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
+    conn = psycopg2.connect(**params)
+    conn.set_session(autocommit=True)
     cur = conn.cursor()
 
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)

@@ -41,7 +41,7 @@ def drop_tables(cur, conn):
 
 def create_tables(cur, conn):
     """
-    Creates each table using the queries in `create_table_queries` list. 
+    Creates each table using the queries in `create_table_queries` list.
     """
     for query in create_table_queries:
         cur.execute(query)
