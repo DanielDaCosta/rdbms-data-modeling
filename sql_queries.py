@@ -6,6 +6,16 @@ song_table_drop = "drop table if exists songs cascade"
 artist_table_drop = "drop table if exists artists cascade"
 time_table_drop = "drop table if exists time cascade"
 
+
+# TRUNCATE TABLES
+
+songplay_table_truncate = "truncate table songplays"
+user_table_truncate = "truncate table users cascade"
+song_table_truncate = "truncate table songs cascade"
+artist_table_truncate = "truncate table artists cascade"
+time_table_truncate = "truncate table time cascade"
+
+
 # CREATE TABLES
 
 songplay_table_create = ("""
@@ -92,7 +102,8 @@ on conflict do nothing;
 
 time_table_insert = ("""
 insert into time(start_time, hour, day, week, month, year, weekday)
-values (%s, %s, %s, %s, %s, %s, %s);
+values (%s, %s, %s, %s, %s, %s, %s)
+on conflict do nothing;
 """)
 
 # FIND SONGS
@@ -122,3 +133,11 @@ drop_table_queries = [
     time_table_drop,
     songplay_table_drop
     ]
+
+truncate_table_queries = [
+    songplay_table_truncate,
+    user_table_truncate,
+    song_table_truncate,
+    artist_table_truncate,
+    time_table_truncate
+]
