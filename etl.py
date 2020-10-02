@@ -11,6 +11,12 @@ params = config()
 def insert_many_from_dataframe(conn, df, table):
     """
     Insert many into table from Dataframe
+    Args:
+        conn
+        df (DataFrame)
+        table (string): table name
+    Returns:
+        None
     """
     params_insert = ["%s" for i in range(len(df.columns))]
     params_insert = ','.join(params_insert)
@@ -35,6 +41,12 @@ def copy_from_dataframe(conn, df, table):
     """
     Copy data from DataFrame and save it to
     sql table using copy_from() from psycopg2
+    Args:
+        conn
+        df (DataFrame)
+        table (string): table name
+    Returns:
+        None
     """
     with tempfile.NamedTemporaryFile() as temp:
         df.to_csv(temp.name, index=False, header=False)
@@ -51,6 +63,15 @@ def copy_from_dataframe(conn, df, table):
 
 
 def insert_from_dataframe(conn, df, query):
+    """
+    Basic insertition in table given a query param
+    Args:
+        conn
+        df (DataFrame)
+        query (string): table name
+    Returns:
+        None
+    """
     cur = conn.cursor()
     try:
         for i, row in df.iterrows():
@@ -157,7 +178,13 @@ def process_log_file(conn, all_files):
 
 
 def process_data(conn, filepath, func):
-    # get all files matching extension from directory
+    """
+    Get all files matching extension from directory
+    Args:
+        conn
+        filepath (string)
+        func (object)
+    """
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
