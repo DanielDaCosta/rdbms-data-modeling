@@ -149,7 +149,7 @@ def process_log_file(conn, all_files):
     )
 
     # insert songplay records
-    print('Insert into song plays tables')
+    print('Inserting into song plays tables...')
     all_song_play_data = []
     for index, row in df.iterrows():
         cur = conn.cursor()
