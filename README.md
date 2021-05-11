@@ -5,11 +5,11 @@
 ![DatabaseSchema](Images/schema_database.png)
 
 ## Files
-- database.ini: database credentials(*host, database, user, password, port*)
-- create_tables.py: run script to create database tables described on the image above
-- etl.py: run script to tranfer all the data from folder `data` to database
-- sql_queries.py: all queries
-- etl.ipynb: step-by-step to tutorial on how to prepare the data for insertion
+- *database.ini*: database credentials(*host, database, user, password, port*)
+- *create_tables.py*: run script to create database tables described on the image above
+- *etl.py*: run script to tranfer all the data from folder `data` to database
+- *sql_queries.py*: all queries
+- *etl.ipynb*: step-by-step tutorial on how to prepare the data for insertion
 
 ## Usage
 
