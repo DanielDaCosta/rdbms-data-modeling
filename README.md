@@ -31,7 +31,7 @@ python create_tables.py
 
 ## Details
 
-The data insertion is done using three different approaches from `psycopg2` library:
+The data insertion is done using three different methods from `psycopg2` library:
 
 - copy_from
 - execute(simple insertition statement)
