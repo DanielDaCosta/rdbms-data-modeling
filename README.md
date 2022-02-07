@@ -1,4 +1,4 @@
-# rdbms-data-modeling
+# Rdbms Data Modeling
 
 ## Database Schema
 
